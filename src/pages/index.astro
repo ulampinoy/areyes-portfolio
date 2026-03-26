@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+
+const projects = [
+  {
+    title: "Packlink",
+    role: "Design Lead",
+    description: "Scaled a shipping platform's design system and led the product team through on-boarding flows, bulk operations, and brand identity.",
+    image: "/images/packlink-cover.png",
+    tags: ["Design Systems", "UX", "Brand"],
+  },
+  {
+    title: "TheMotion",
+    role: "UX & UI Engineering",
+    description: "Designed and built the self-serve interface for automated video ad creation at scale — from template galleries to campaign dashboards.",
+    image: "/images/themotion-cover.png",
+    tags: ["Product Design", "Front-end", "Video"],
+  },
+  {
+    title: "AdGoClick",
+    role: "Product Design",
+    description: "Simplified Google Ads for small business owners — user flows, design system, and UI implementation for an intuitive campaign builder.",
+    image: "/images/adgoclick-cover.png",
+    tags: ["UI/UX", "Design System", "SaaS"],
+  },
+  {
+    title: "MarketGoo",
+    role: "Visual Design & UI",
+    description: "Crafted the visual identity and product interface for a DIY SEO tool — web app design, illustrations, iconography, and screencasts.",
+    image: "/images/marketgoo-cover.png",
+    tags: ["Visual Design", "Illustration", "SaaS"],
+  },
+  {
+    title: "Domestika",
+    role: "Design & Front-end",
+    description: "Redesigned the largest Spanish-speaking creative community for responsive web — prototypes, illustrations, icons, and front-end code.",
+    image: "/images/domestika-cover.png",
+    tags: ["Responsive", "Front-end", "Community"],
+  },
+  {
+    title: "Bookingpad",
+    role: "Design & Development",
+    description: "Designed and hand-coded the landing experience for an NDC flight booking platform built with modern static-site tooling.",
+    image: "/images/bookingpad-cover.png",
+    tags: ["Landing Page", "HTML/CSS", "Travel"],
+  },
+  {
+    title: "WebPop",
+    role: "Creative Direction",
+    description: "Led creative direction, branding, and UI development for the pioneering cloud CMS that became the precursor to Netlify.",
+    image: "/images/webpop-cover.png",
+    tags: ["Branding", "UI Dev", "CMS"],
+  },
+  {
+    title: "UlamPinoy",
+    role: "Design & Development",
+    description: "Built a complete brand and mobile-first web presence for a Filipino cooking YouTube channel with 60K+ subscribers.",
+    image: "/images/ulampinoy-cover.png",
+    tags: ["Branding", "Full-stack", "Content"],
+  },
+  {
+    title: "UpCheers",
+    role: "UI Design",
+    description: "Designed a fully responsive, mobile-first talent marketplace — from visual direction to hand-coded front-end implementation.",
+    image: "/images/upcheers-cover.png",
+    tags: ["Mobile-first", "Marketplace", "UI"],
+  },
+  {
+    title: "Via Villas",
+    role: "Design & IA",
+    description: "Structured the content and designed the interface for a curated Italian villa marketplace — search, listings, and booking flows.",
+    image: "/images/viavilla-cover.png",
+    tags: ["Marketplace", "IA", "Travel"],
+  },
+];
+---
+
+<Base title="Allan Reyes — Design Engineer">
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-24 pb-32 md:pt-32 md:pb-40">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-8">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="bauhaus-line"></div>
+          <span class="text-sm font-mono uppercase tracking-widest opacity-50">Design Engineer</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
+          Allan<br />Reyes
+        </h1>
+      </div>
+      <div class="md:col-span-4 md:pb-2">
+        <p class="text-lg md:text-xl leading-relaxed opacity-70">
+          Two decades of bridging design and code. I build systems where
+          visual clarity meets engineering precision — interfaces that work
+          as well as they look.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bauhaus decorative elements -->
+    <div class="flex items-center gap-4 mt-16">
+      <div class="w-3 h-3 rounded-full border border-current opacity-20"></div>
+      <div class="w-3 h-3 bg-current opacity-10"></div>
+      <div class="flex-1 h-px bg-current opacity-10"></div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="max-w-6xl mx-auto px-6 pb-32">
+    <div class="flex items-center gap-4 mb-16">
+      <h2 class="text-sm font-mono uppercase tracking-widest opacity-50">Selected Work</h2>
+      <div class="flex-1 h-px bg-current opacity-10"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-x-8 gap-y-16">
+      {projects.map((project, i) => (
+        <article class="group">
+          <div class="aspect-[4/3] overflow-hidden bg-dark/5 dark:bg-light/5 mb-6">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              loading={i < 4 ? "eager" : "lazy"}
+            />
+          </div>
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <h3 class="text-xl font-semibold">{project.title}</h3>
+            <span class="text-xs font-mono uppercase tracking-wider opacity-40 whitespace-nowrap pt-1">{project.role}</span>
+          </div>
+          <p class="text-sm leading-relaxed opacity-60">{project.description}</p>
+          <div class="flex gap-2 mt-4">
+            {project.tags.map((tag) => (
+              <span class="text-[11px] font-mono uppercase tracking-wider opacity-30 border border-current/20 px-2 py-0.5">{tag}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-dark/10 dark:border-light/10">
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 text-center">
+      <p class="text-sm font-mono uppercase tracking-widest opacity-40 mb-6">What's next?</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-8">Let's build something together.</h2>
+      <a
+        href="/contact"
+        class="inline-block border border-dark dark:border-light px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark transition-colors duration-300"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</Base>

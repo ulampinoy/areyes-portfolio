@@ -1,5 +1,6 @@
 [build]
-publish = "public"
+  command = "npm run build"
+  publish = "dist"
 
-  [build.environment]
-  HUGO_VERSION = "0.64.1"
+[build.environment]
+  NODE_VERSION = "18.20.8"
