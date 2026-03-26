@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-light text-dark transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-dark text-light;
+  }
+
+  ::selection {
+    @apply bg-dark text-light;
+  }
+
+  .dark ::selection {
+    @apply bg-light text-dark;
+  }
+}
+
+@layer components {
+  .bauhaus-line {
+    @apply w-12 h-0.5 bg-dark;
+  }
+
+  .dark .bauhaus-line {
+    @apply bg-light;
+  }
+
+  .bauhaus-circle {
+    @apply w-3 h-3 rounded-full bg-dark;
+  }
+
+  .dark .bauhaus-circle {
+    @apply bg-light;
+  }
+
+  .bauhaus-block {
+    @apply border border-dark/10 p-6;
+  }
+
+  .dark .bauhaus-block {
+    @apply border-light/10;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}

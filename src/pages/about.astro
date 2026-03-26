@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+
+const skills = [
+  {
+    category: "Design",
+    items: ["Figma", "Design Systems", "Prototyping", "Visual Design", "Illustration", "Brand Identity"],
+  },
+  {
+    category: "Engineering",
+    items: ["HTML/CSS", "JavaScript", "React", "Astro", "Tailwind", "Static Site Generators"],
+  },
+  {
+    category: "Process",
+    items: ["User Research", "Information Architecture", "Git Workflows", "Agile/Scrum", "Design Ops"],
+  },
+];
+---
+
+<Base title="About — Allan Reyes">
+
+  <section class="max-w-6xl mx-auto px-6 pt-24 pb-32 md:pt-32">
+
+    <div class="flex items-center gap-4 mb-16">
+      <div class="bauhaus-line"></div>
+      <span class="text-sm font-mono uppercase tracking-widest opacity-50">About</span>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-12 md:gap-16">
+
+      <!-- Main content -->
+      <div class="md:col-span-7 space-y-8">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          I design and engineer<br />digital products.
+        </h1>
+
+        <div class="space-y-6 text-lg leading-relaxed opacity-70">
+          <p>
+            With 20 years in the field, I operate at the intersection of design and front-end engineering.
+            I think in systems — from atomic design tokens to scalable component architectures — and I write
+            the code to bring them to life.
+          </p>
+          <p>
+            I've led design for shipping platforms, built self-serve tools for video advertising,
+            simplified ad tech for small businesses, and shaped the brand identity of a cloud CMS
+            that evolved into Netlify. My work spans the full product surface: research, visual design,
+            interaction patterns, design systems, and production-ready front-end code.
+          </p>
+          <p>
+            I believe the best digital products emerge when design decisions are informed by technical
+            constraints and engineering is guided by human-centered thinking. That's where I thrive.
+          </p>
+        </div>
+
+        <!-- Bauhaus divider -->
+        <div class="flex items-center gap-4 py-8">
+          <div class="w-3 h-3 bg-current opacity-10"></div>
+          <div class="w-3 h-3 rounded-full border border-current opacity-20"></div>
+          <div class="flex-1 h-px bg-current opacity-10"></div>
+        </div>
+
+        <!-- Skills grid -->
+        <div>
+          <h2 class="text-sm font-mono uppercase tracking-widest opacity-40 mb-8">Toolset & Capabilities</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {skills.map((group) => (
+              <div>
+                <h3 class="text-xs font-mono uppercase tracking-wider opacity-50 mb-4 pb-2 border-b border-current/10">
+                  {group.category}
+                </h3>
+                <ul class="space-y-2">
+                  {group.items.map((item) => (
+                    <li class="text-sm opacity-60">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="pt-8">
+          <h2 class="text-sm font-mono uppercase tracking-widest opacity-40 mb-4">Education</h2>
+          <p class="text-sm opacity-60">B.S. Computer Science — Lyceum Northwestern University</p>
+        </div>
+      </div>
+
+      <!-- Photo column -->
+      <div class="md:col-span-5">
+        <div class="sticky top-28">
+          <div class="aspect-[3/4] overflow-hidden bg-dark/5 dark:bg-light/5">
+            <img
+              src="/images/photo-allan-camera.jpg"
+              alt="Allan Reyes"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-sm opacity-40">
+            <div class="bauhaus-circle"></div>
+            <span class="font-mono">Manila / Madrid / Remote</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Base>
