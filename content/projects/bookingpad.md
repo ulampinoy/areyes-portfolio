@@ -3,6 +3,7 @@ title: Bookingpad
 subtitle: >-
   Bookingpad is a Web-based agent desktop front-end solution for booking NDC content by AirGateway
 date: '2019-01-04'
+draft: true
 thumb_img_path: /images/bookingpad-cover.png
 content_img_path: ''
 

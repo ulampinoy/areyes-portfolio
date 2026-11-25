@@ -14,6 +14,7 @@
         {{ with $p.Params.thumb_img_path }}<span class="index__thumb"><img src="{{ . | relURL }}" alt="" loading="lazy" decoding="async" style="view-transition-name: thumb-{{ $p.File.BaseFileName }}"></span>{{ end }}
         <span class="index__body">
           <span class="index__title" style="view-transition-name: title-{{ $p.File.BaseFileName }}">{{ $p.Title }}</span>
+          {{ if $p.Params.featured }}<span class="index__badge">Featured · new website</span>{{ end }}
           {{ with $p.Params.subtitle }}<span class="index__sub">{{ . | plainify | truncate 140 }}</span>{{ end }}
         </span>
         <span class="index__arrow" aria-hidden="true">→</span>

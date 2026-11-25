@@ -52,15 +52,24 @@
       "company": "AirGateway",
       "period": "Jun 2021 – Present",
       "start": "2021-06",
-      "about": "Next-generation travel distribution service offering real-time content from 30+ NDC airlines.",
+      "about": "Next-generation travel distribution service offering real-time content from 40+ NDC and low-cost airlines.",
       "points": [
-        "Full-stack design across brand, marketing and implementation: the company website and campaign materials for conferences and social media, designed and built in code.",
+        "Led the redesign of the official website, airgateway.com: positioning, visual direction, design system and front-end, designed and built in code.",
+        "Full-stack design across brand, marketing and implementation, including campaign materials for conferences and social media.",
         "Use AI for research, moodboards, color science and design system work, and to build the company's event stand.",
-        "Defined, designed and built BookingPad, the company's NDC-ready travel agent app.",
+        "Defined, designed and built BookingPad, the company's NDC-ready travel agent app, launching in December 2026.",
         "Improve user flows on the partner self-serve web app, working directly with the founder and the dev team."
       ],
       "ai": true,
-      "cases": [{ "label": "BookingPad", "url": "/projects/bookingpad/" }]
+      "featured": {
+        "label": "Featured · New website",
+        "title": "airgateway.com, redesigned",
+        "text": "A new site that makes NDC simple for managed travel sellers: sharper message, bolder type, and a component system built in code.",
+        "url": "/projects/airgateway/"
+      },
+      "cases": [
+        { "label": "airgateway.com", "url": "https://airgateway.com/" }
+      ]
     },
     {
       "id": "rockhero",

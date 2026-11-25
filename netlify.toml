@@ -7,6 +7,13 @@
   # The Netlify Server (AI assistant API) requires Node.js 24+
   NODE_VERSION = "24"
 
+# BookingPad case study is unpublished until the product launches (Dec 2026).
+# Temporary (302) so search engines keep the old URL for when it returns.
+[[redirects]]
+  from = "/projects/bookingpad/*"
+  to = "/projects/airgateway/"
+  status = 302
+
 # Old pages folded into the one-page CV
 [[redirects]]
   from = "/about/*"
