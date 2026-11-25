@@ -69,6 +69,16 @@
           {{ range .points }}<li>{{ replaceRE `\bAI\b` `<mark class="ai">AI</mark>` . | safeHTML }}</li>{{ end }}
         </ul>
         <p class="work__about">{{ .about }}</p>
+        {{ with .featured }}
+        <a class="feature" href="{{ .url }}">
+          <span class="feature__body">
+            <span class="feature__label">{{ .label }}</span>
+            <span class="feature__title">{{ .title }}</span>
+            <span class="feature__text">{{ .text }}</span>
+            <span class="feature__more">read the case study <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+        {{ end }}
         {{ with .cases }}
         <p class="work__cases">
           {{ range . }}<a href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="noopener"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if hasPrefix .url "http" }}↗{{ else }}→{{ end }}</span></a>{{ end }}
