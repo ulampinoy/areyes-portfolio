@@ -215,6 +215,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .contact a { text-decoration: none; }
 .contact a:hover { text-decoration: underline; }
 
+/* Contact (opens the contact dialog) */
+.contact-cta { margin: 1rem 0 1.2rem; }
+.toolbar__contact { background: none; border: 0; padding: 0; color: var(--ink-2); }
+.toolbar__contact:hover { color: var(--accent); }
+@media print { .contact-cta { display: none !important; } }
+
 /* Works */
 .works { list-style: none; padding: 0; counter-reset: work; }
 .work { position: relative; padding: 0 0 2.6rem; counter-increment: work; }
@@ -416,6 +422,26 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .ask__form:focus-within { box-shadow: inset 0 1px 0 var(--accent); }
 .ask__send { font-size: .74rem; font-weight: 600; padding: .4rem .75rem; border-radius: 7px; border: 1px solid var(--accent); background: var(--accent); color: light-dark(#fff, #0E1118); }
 .ask__send:disabled { opacity: .45; cursor: progress; }
+
+/* ---------- Contact me dialog (shares the .ask dialog shell) ---------- */
+.contact-dialog { width: min(36rem, calc(100vw - 1.5rem)); }
+.contact-form { display: grid; gap: .9rem; padding: 1.2rem; overflow-y: auto; overscroll-behavior: contain; }
+.contact-form .ask__lead { margin: 0; }
+.contact-form__hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .9rem; }
+.field { display: grid; gap: .3rem; }
+.field span { font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea {
+  font: inherit; font-size: .84rem; color: var(--ink); width: 100%;
+  padding: .55rem .7rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper-2);
+  transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 7rem; }
+.field input:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.contact-form__foot { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
+.contact-form__status { margin-right: auto; }
+.contact-form__status.is-error { color: light-dark(#A3402F, #E4907F); }
+.contact-form__status.is-done { color: var(--accent); }
 
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {

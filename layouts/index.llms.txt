@@ -5,7 +5,7 @@
 
 {{ $cv.profile }}
 
-Contact: {{ $cv.contact.email }} · {{ $cv.contact.phone }} · https://allanrey.es · https://ulampinoy.com
+Contact: contact form at https://allanrey.es/#contact · https://allanrey.es · https://ulampinoy.com
 PDF: https://allanrey.es/cv/Allan-Reyes-CV.pdf
 
 ## Experience

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="page">
+  <header class="page__head">
+    <p class="label"><a href="{{ "/" | relURL }}">← cv</a> / contact</p>
+    <h1 class="page__title">{{ .Title }}</h1>
+    <p class="lede">{{ .Params.subtitle }}</p>
+  </header>
+  <p><a class="button button--ghost" href="{{ "/" | relURL }}">back to the cv <span aria-hidden="true">→</span></a></p>
+</article>
+{{ end }}
