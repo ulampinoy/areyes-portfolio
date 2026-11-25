@@ -1,0 +1,26 @@
+<dialog class="ask" id="ask" aria-labelledby="ask-title">
+  <form method="dialog" class="ask__head">
+    <p class="ask__title" id="ask-title"><span class="ask-trigger__dot" aria-hidden="true"></span>ask my cv</p>
+    <p class="ask__hint">Grounded in this CV only. Answers by an AI model via Netlify AI Gateway.</p>
+    <button class="ask__close" value="close" aria-label="Close">esc</button>
+  </form>
+
+  <div class="ask__log" id="ask-log" aria-live="polite">
+    <div class="ask__empty">
+      <p class="ask__lead">Hi, I'm Allan's CV, in conversation form. Ask me anything about his work, or paste a job description to see how he fits.</p>
+      <ul class="ask__chips">
+        <li><button type="button" data-prompt="How does Allan use AI in his design work?">How does Allan use AI?</button></li>
+        <li><button type="button" data-prompt="Summarise Allan for a hiring manager in three short lines.">Three-line summary</button></li>
+        <li><button type="button" data-prompt="Which projects show Allan going from concept all the way to code?">Concept → code examples</button></li>
+        <li><button type="button" data-fill="Here is a job description. How well does Allan fit, and where are the gaps?&#10;&#10;">Paste a job description</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <form class="ask__form" id="ask-form">
+    <label class="visually-hidden" for="ask-input">Your question</label>
+    <span class="ask__prompt" aria-hidden="true">&gt;</span>
+    <textarea id="ask-input" name="q" rows="1" maxlength="6000" placeholder="Ask about experience, tools, AI…" required></textarea>
+    <button class="ask__send" type="submit">send <span aria-hidden="true">↵</span></button>
+  </form>
+</dialog>

@@ -1,11 +1,4 @@
 ---
-title: Design Portfolio
-subtitle: ''
-layout_style: tiles
-menu:
-  main:
-    name: Portfolio
-    weight: 2
-layout: portfolio
+title: Work
+subtitle: Case studies and side projects, from brand systems to shipped product.
 ---
-

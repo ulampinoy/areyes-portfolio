@@ -1,0 +1,9 @@
+{
+  "name": "areyes-portfolio",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0"
+  }
+}

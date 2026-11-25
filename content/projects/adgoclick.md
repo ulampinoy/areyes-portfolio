@@ -7,7 +7,7 @@ subtitle: >-
 date: '2019-05-10'
 thumb_img_path: /images/adgoclick-cover.png
 content_img_path: /images/adgoclick-dashboard.png
-layout: project
+
 ---
 
 ### What I Contributed to the Project

@@ -5,7 +5,7 @@ subtitle: >-
 date: '2019-01-04'
 thumb_img_path: /images/bookingpad-cover.png
 content_img_path: ''
-layout: project
+
 ---
 
 ### Web Design Work

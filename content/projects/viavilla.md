@@ -5,7 +5,7 @@ subtitle: >-
 date: '2015-12-01'
 thumb_img_path: /images/viavilla-cover.png
 content_img_path: ''
-layout: project
+
 ---
 
 ### Web Design Work

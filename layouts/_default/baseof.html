@@ -1,26 +1,72 @@
 <!doctype html>
-<html>
-    <head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — Allan Reyes{{ end }}</title>
+  {{ $desc := .Site.Params.description }}{{ with .Params.subtitle }}{{ $desc = . }}{{ end }}
+  <meta name="description" content="{{ trim ($desc | plainify) " \n" }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F7F7F5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101218" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — Allan Reyes{{ end }}">
+  <meta property="og:description" content="{{ trim ($desc | plainify) " \n" }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="alternate" type="text/plain" title="CV for language models" href="{{ "llms.txt" | relURL }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap">
+  <link rel="stylesheet" href="{{ "css/cv.css" | relURL }}?v=2026.11">
+  <script>
+    /* Apply the stored theme before first paint */
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "href_matches": "/projects/*" }, "eagerness": "moderate" }],
+      "prefetch":  [{ "where": { "href_matches": "/portfolio/*" }, "eagerness": "moderate" }] }
+  </script>
+  {{ block "head" . }}{{ end }}
+</head>
+<body class="{{ if .IsHome }}is-home{{ else }}is-inner{{ end }}">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
-        <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google" content="notranslate" />
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "assets/css/main.css" . | resources.ToCSS (dict "indentWidth" 4 "outputStyle" "nested" "precision" 10)).Permalink }}">
+  <nav class="toolbar" aria-label="Site">
+    <a class="toolbar__home" href="{{ "/" | relURL }}" aria-label="Allan Reyes, CV home">
+      <span class="toolbar__mark">{{ partial "monogram.html" . }}</span>
+      <span class="toolbar__name">allan.reyes</span>
+    </a>
+    <ul class="toolbar__links">
+      <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>cv</a></li>
+      <li><a href="{{ "portfolio/" | relURL }}"{{ if or (eq .Section "portfolio") (eq .Section "projects") }} aria-current="page"{{ end }}>work</a></li>
+      <li><a href="{{ "cv/Allan-Reyes-CV.pdf" | relURL }}" download>pdf<span aria-hidden="true">&nbsp;↓</span></a></li>
+      <li>
+        <button class="ask-trigger" type="button" data-ask aria-haspopup="dialog">
+          <span class="ask-trigger__dot" aria-hidden="true"></span>ask my cv
+          <kbd aria-hidden="true">⌘K</kbd>
+        </button>
+      </li>
+      <li>
+        <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
 
-    </head>
-    <body>
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
 
-        <div id="page" class="site palette-{{ .Site.Params.color_scheme }} accent-{{ .Site.Params.accent_color }}">
-          {{ partial "header.html" . }}
-          <main id="content" class="site-content">
-            {{ block "content" . }}{{ end }}
-          </main><!-- .site-content -->
-          {{ partial "footer.html" . }}
-        </div><!-- .site -->
-        <!-- Scripts -->
-        <script src="{{ "assets/js/plugins.js" | relURL }}"></script>
-        <script src="{{ "assets/js/main.js" | relURL }}"></script>
-    </body>
+  <footer class="colophon">
+    <p>© {{ now.Year }} Allan Reyes · Set in JetBrains Mono · Hand-built with Hugo, modern CSS and an AI assistant running on Netlify.</p>
+    <p class="colophon__machine">Machine-readable: <a href="{{ "llms.txt" | relURL }}">/llms.txt</a> · schema.org JSON-LD</p>
+  </footer>
+
+  {{ partial "ask.html" . }}
+  <script type="module" src="{{ "js/cv.js" | relURL }}?v=2026.11"></script>
+</body>
 </html>

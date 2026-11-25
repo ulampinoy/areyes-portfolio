@@ -5,7 +5,7 @@ subtitle: >-
 date: '2019-04-30'
 thumb_img_path: /images/themotion-cover.png
 content_img_path: ''
-layout: project
+
 ---
 ### Work Done
 

@@ -1,0 +1,92 @@
+{{ define "head" }}
+{{ $cv := .Site.Data.cv }}
+{{ $works := slice }}
+{{ range $cv.works }}{{ $works = $works | append (dict "@type" "OrganizationRole" "roleName" "Designer" "startDate" .start "memberOf" (dict "@type" "Organization" "name" .company "description" .about)) }}{{ end }}
+{{ $sameAs := slice "https://ulampinoy.com" }}{{ range $cv.contact.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{ $ld := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.name "jobTitle" $cv.role "description" $cv.profile "email" (printf "mailto:%s" $cv.contact.email) "url" "https://allanrey.es" "sameAs" $sameAs "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Lyceum Northwestern University") "knowsAbout" (slice "Brand identity" "Visual direction" "Product design" "UI design systems" "Front-end development" "Photography" "Video production" "AI-assisted design") "hasOccupation" (dict "@type" "Occupation" "name" "Designer and visual director") "worksFor" (dict "@type" "Organization" "name" "AirGateway") }}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ define "main" }}
+{{ $cv := .Site.Data.cv }}
+<article class="sheet" aria-label="Curriculum vitae">
+
+  <header class="sheet__head" id="profile">
+    <div class="sheet__mark">{{ partial "monogram.html" . }}</div>
+    <div class="sheet__intro">
+      <h1 class="name" data-decode>{{ $cv.name }}</h1>
+      <p class="lede"><strong>{{ $cv.lede }}</strong> {{ replaceRE `\bAI\b` `<mark class="ai">AI</mark>` $cv.intro | safeHTML }}</p>
+      <p class="toolchain" aria-label="Tools at hand: {{ delimit $cv.toolchain ", " }}">
+        <span class="toolchain__label">// any tool at hand</span>
+        {{ range $i, $t := $cv.toolchain }}<span class="toolchain__item" style="--i: {{ $i }}">{{ $t }}</span>{{ end }}
+        <span class="toolchain__cursor" aria-hidden="true"></span>
+      </p>
+    </div>
+  </header>
+
+  <aside class="sheet__side" aria-label="Skills, education, languages and contact">
+    <section class="block" aria-labelledby="h-skills">
+      <h2 class="label" id="h-skills">Skill set &amp; tool kit</h2>
+      {{ range $cv.skills }}
+      <div class="skill">
+        <h3>{{ .title }}</h3>
+        <p>{{ replaceRE `\bAI\b` `<mark class="ai">AI</mark>` .text | safeHTML }}</p>
+      </div>
+      {{ end }}
+    </section>
+
+    <section class="block" aria-labelledby="h-edu">
+      <h2 class="label" id="h-edu">Education</h2>
+      {{ range $cv.education }}<p class="small"><strong>{{ .title }}</strong><br>{{ .school }}</p>{{ end }}
+    </section>
+
+    <section class="block" aria-labelledby="h-lang">
+      <h2 class="label" id="h-lang">Languages</h2>
+      {{ range $cv.languages }}<p class="small"><strong>{{ .title }}</strong><br>{{ .text }}</p>{{ end }}
+    </section>
+
+    <section class="block" id="contact" aria-labelledby="h-contact">
+      <h2 class="label" id="h-contact">Contact me</h2>
+      <p class="small contact">
+        <a href="mailto:{{ $cv.contact.email }}"><strong>{{ $cv.contact.email }}</strong></a><br>
+        <a href="tel:{{ $cv.contact.phone_href }}"><strong>{{ $cv.contact.phone }}</strong></a>
+      </p>
+      <p class="small contact">
+        {{ range $cv.contact.sites }}<a href="{{ .url }}">{{ .label }}</a><br>{{ end }}
+        {{ range $cv.contact.social }}<a href="{{ .url }}" rel="me">{{ .label }}</a><br>{{ end }}
+      </p>
+    </section>
+  </aside>
+
+  <section class="sheet__main" aria-labelledby="h-works">
+    <h2 class="label" id="h-works">Recent works</h2>
+    <ol class="works">
+      {{ range $cv.works }}
+      <li class="work" id="{{ .id }}">
+        <h3 class="work__company">{{ .company }}</h3>
+        <p class="work__period">{{ .period }}</p>
+        <ul class="work__points">
+          {{ range .points }}<li>{{ replaceRE `\bAI\b` `<mark class="ai">AI</mark>` . | safeHTML }}</li>{{ end }}
+        </ul>
+        <p class="work__about">{{ .about }}</p>
+        {{ with .cases }}
+        <p class="work__cases">
+          {{ range . }}<a href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="noopener"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if hasPrefix .url "http" }}↗{{ else }}→{{ end }}</span></a>{{ end }}
+        </p>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+
+    <aside class="cta" aria-label="Ask the AI assistant">
+      <p class="label">Still curious?</p>
+      <p>This CV can answer questions. Try it with a job description: it'll tell you where Allan fits and where he doesn't.</p>
+      <div class="cta__actions">
+      <button type="button" class="button" data-ask>ask my cv <kbd aria-hidden="true">⌘K</kbd></button>
+      <a class="button button--ghost" href="{{ "cv/Allan-Reyes-CV.pdf" | relURL }}" download>download pdf ↓</a>
+      </div>
+    </aside>
+  </section>
+
+</article>
+{{ end }}
