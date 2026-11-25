@@ -3,7 +3,7 @@
 {{ $works := slice }}
 {{ range $cv.works }}{{ $works = $works | append (dict "@type" "OrganizationRole" "roleName" "Designer" "startDate" .start "memberOf" (dict "@type" "Organization" "name" .company "description" .about)) }}{{ end }}
 {{ $sameAs := slice "https://ulampinoy.com" }}{{ range $cv.contact.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
-{{ $ld := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.name "jobTitle" $cv.role "description" $cv.profile "email" (printf "mailto:%s" $cv.contact.email) "url" "https://allanrey.es" "sameAs" $sameAs "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Lyceum Northwestern University") "knowsAbout" (slice "Brand identity" "Visual direction" "Product design" "UI design systems" "Front-end development" "Photography" "Video production" "AI-assisted design") "hasOccupation" (dict "@type" "Occupation" "name" "Designer and visual director") "worksFor" (dict "@type" "Organization" "name" "AirGateway") }}
+{{ $ld := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.name "jobTitle" $cv.role "description" $cv.profile "url" "https://allanrey.es" "sameAs" $sameAs "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Lyceum Northwestern University") "knowsAbout" (slice "Brand identity" "Visual direction" "Product design" "UI design systems" "Front-end development" "Photography" "Video production" "AI-assisted design") "hasOccupation" (dict "@type" "Occupation" "name" "Designer and visual director") "worksFor" (dict "@type" "Organization" "name" "AirGateway") }}
 <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
 {{ end }}
 
@@ -47,10 +47,8 @@
 
     <section class="block" id="contact" aria-labelledby="h-contact">
       <h2 class="label" id="h-contact">Contact me</h2>
-      <p class="small contact">
-        <a href="mailto:{{ $cv.contact.email }}"><strong>{{ $cv.contact.email }}</strong></a><br>
-        <a href="tel:{{ $cv.contact.phone_href }}"><strong>{{ $cv.contact.phone }}</strong></a>
-      </p>
+      <p class="small">Got a project or a role in mind? Send me a message.</p>
+      <p class="contact-cta"><button type="button" class="button" data-contact aria-haspopup="dialog">contact me <span aria-hidden="true">→</span></button></p>
       <p class="small contact">
         {{ range $cv.contact.sites }}<a href="{{ .url }}">{{ .label }}</a><br>{{ end }}
         {{ range $cv.contact.social }}<a href="{{ .url }}" rel="me">{{ .label }}</a><br>{{ end }}

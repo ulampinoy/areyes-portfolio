@@ -49,6 +49,7 @@
           <kbd aria-hidden="true">⌘K</kbd>
         </button>
       </li>
+      <li><button class="toolbar__contact" type="button" data-contact aria-haspopup="dialog">contact</button></li>
       <li>
         <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">
           <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z"/></svg>
@@ -67,6 +68,7 @@
   </footer>
 
   {{ partial "ask.html" . }}
+  {{ partial "contact.html" . }}
   <script type="module" src="{{ "js/cv.js" | relURL }}?v=2026.11"></script>
 </body>
 </html>

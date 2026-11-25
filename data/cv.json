@@ -7,9 +7,6 @@
   "profile": "Designer with 20 years of experience across brand, visual identity, marketing and digital product. I take a brief to a visual direction and carry it through to production, from concept to code. I run Ulam Pinoy, a food channel and website with 66.4K subscribers and 11.3M views. AI is part of my creative process, from research and moodboards to design systems and event production.",
   "toolchain": ["pencil", "camera", "Figma", "code", "AI"],
   "contact": {
-    "email": "allanreyes@gmail.com",
-    "phone": "+34 66 333 0540",
-    "phone_href": "+34663330540",
     "sites": [
       { "label": "allanrey.es", "url": "https://allanrey.es" },
       { "label": "ulampinoy.com", "url": "https://ulampinoy.com" }

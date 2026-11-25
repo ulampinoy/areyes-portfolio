@@ -45,6 +45,7 @@ const history = []; // { role, content } — lives only in this tab
 let busy = false;
 
 const open = () => {
+  contactDialog?.open && contactDialog.close();
   if (!dialog.open) dialog.showModal();
   input.focus();
 };
@@ -138,10 +139,58 @@ form?.addEventListener('submit', async (e) => {
   } catch (err) {
     history.pop();
     out.classList.add('msg--error');
-    out.innerHTML = `${escapeHtml(err.message || 'Something went wrong.')} You can also email <a href="mailto:allanreyes@gmail.com">allanreyes@gmail.com</a>.`;
+    out.innerHTML = `${escapeHtml(err.message || 'Something went wrong.')} You can also use the <a href="/#contact">contact form</a>.`;
   } finally {
     out.classList.remove('msg--thinking');
     busy = false; send.disabled = false;
     input.focus();
+  }
+});
+
+/* ---------- Contact me dialog (Netlify Forms, submitted in place) ---------- */
+const contactDialog = document.getElementById('contact-dialog');
+const contactForm = contactDialog?.querySelector('form[name="contact"]');
+const openContact = () => {
+  if (!contactDialog) return;
+  if (dialog?.open) dialog.close();
+  if (!contactDialog.open) contactDialog.showModal();
+  contactForm.querySelector('input[name="name"]').focus();
+};
+document.querySelectorAll('[data-contact]').forEach((b) => b.addEventListener('click', openContact));
+contactDialog?.addEventListener('click', (e) => { if (e.target === contactDialog) contactDialog.close(); });
+// Links to #contact (from the assistant, llms.txt or old /contact URLs) open the dialog
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href$="#contact"]');
+  if (!a || new URL(a.href).pathname !== '/') return;
+  e.preventDefault();
+  openContact();
+});
+if (location.hash === '#contact') openContact();
+addEventListener('hashchange', () => { if (location.hash === '#contact') openContact(); });
+
+contactForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = contactForm.querySelector('.contact-form__status');
+  const button = contactForm.querySelector('button[type="submit"]');
+  const data = new FormData(contactForm);
+  if (!data.has('form-name')) data.set('form-name', 'contact');
+  button.disabled = true;
+  status.className = 'contact-form__status small';
+  status.textContent = 'Sending…';
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString(),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    contactForm.reset();
+    status.classList.add('is-done');
+    status.textContent = "Thanks, it's on its way. I'll reply by email.";
+  } catch {
+    status.classList.add('is-error');
+    status.textContent = "Sorry, that didn't go through. Please try again, or reach me on LinkedIn.";
+  } finally {
+    button.disabled = false;
   }
 });

@@ -1,0 +1,30 @@
+<dialog class="ask contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+  <form method="dialog" class="ask__head">
+    <p class="ask__title" id="contact-title"><span class="ask-trigger__dot" aria-hidden="true"></span>contact me</p>
+    <p class="ask__hint">Messages come straight to my inbox. Spam-filtered by Netlify Forms.</p>
+    <button class="ask__close" value="close" aria-label="Close">esc</button>
+  </form>
+
+  <form class="contact-form" name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-url">
+    <p class="contact-form__hp" aria-hidden="true">
+      <label>Leave this empty <input name="company-url" tabindex="-1" autocomplete="off"></label>
+    </p>
+    <input type="hidden" name="subject" value="New message from allanrey.es (%{submissionId})">
+    <p class="ask__lead">Got a project, a role or just a question? Leave a note and I'll reply by email.</p>
+    <div class="contact-form__row">
+      <label class="field"><span>Name</span>
+        <input type="text" name="name" required maxlength="120" autocomplete="name">
+      </label>
+      <label class="field"><span>Email</span>
+        <input type="email" name="email" required maxlength="200" autocomplete="email">
+      </label>
+    </div>
+    <label class="field"><span>Message</span>
+      <textarea name="message" required minlength="10" maxlength="4000" rows="5"></textarea>
+    </label>
+    <div class="contact-form__foot">
+      <p class="contact-form__status small" role="status" aria-live="polite"></p>
+      <button type="submit" class="ask__send">send message <span aria-hidden="true">→</span></button>
+    </div>
+  </form>
+</dialog>
