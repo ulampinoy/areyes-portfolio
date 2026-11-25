@@ -6,7 +6,7 @@ subtitle: >-
 date: '2019-01-05'
 thumb_img_path: /images/domestika-cover.png
 content_img_path: ''
-layout: project
+
 ---
 
 ### How I Contribute to Its Success

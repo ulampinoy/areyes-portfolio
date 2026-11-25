@@ -1,0 +1,170 @@
+{
+  "name": "Allan Reyes",
+  "role": "Designer and visual director",
+  "headline": "Designer & Visual Director — brand, product and content",
+  "lede": "Designer and visual director.",
+  "intro": "20 years across brand, visual identity, marketing and digital product. I take a brief to a visual direction and carry it through to production, from concept to code, with AI as part of my creative process.",
+  "profile": "Designer with 20 years of experience across brand, visual identity, marketing and digital product. I take a brief to a visual direction and carry it through to production, from concept to code. I run Ulam Pinoy, a food channel and website with 66.4K subscribers and 11.3M views. AI is part of my creative process, from research and moodboards to design systems and event production.",
+  "toolchain": ["pencil", "camera", "Figma", "code", "AI"],
+  "contact": {
+    "email": "allanreyes@gmail.com",
+    "phone": "+34 66 333 0540",
+    "phone_href": "+34663330540",
+    "sites": [
+      { "label": "allanrey.es", "url": "https://allanrey.es" },
+      { "label": "ulampinoy.com", "url": "https://ulampinoy.com" }
+    ],
+    "social": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/allanreyes/" },
+      { "label": "Instagram", "url": "https://www.instagram.com/ulampinoy/" }
+    ]
+  },
+  "skills": [
+    {
+      "title": "Brand and visual direction",
+      "text": "Visual identity, campaign and marketing design, photography and video direction, illustration, print (InDesign, Illustrator, Photoshop)"
+    },
+    {
+      "title": "AI and design tools",
+      "text": "Figma since its early days, exploring Figma Weave. AI for research, moodboards, color science, design systems and event production"
+    },
+    {
+      "title": "Product and UI",
+      "text": "Sketch, Adobe XD, Principle, Framer, Zeplin. HTML5, CSS3, JavaScript. Git, VS Code, IntelliJ IDEA"
+    },
+    {
+      "title": "Photo and video",
+      "text": "Lightroom, Final Cut Pro, DaVinci Resolve, Screenflow"
+    }
+  ],
+  "education": [
+    { "title": "B.S. Computer Science", "school": "Lyceum Northwestern University" }
+  ],
+  "languages": [
+    {
+      "title": "English: C2 Proficient",
+      "text": "EF SET 75/100, Reading and Listening. Awarded 18 Feb 2025"
+    }
+  ],
+  "works": [
+    {
+      "id": "airgateway",
+      "company": "AirGateway",
+      "period": "Jun 2021 – Present",
+      "start": "2021-06",
+      "about": "Next-generation travel distribution service offering real-time content from 30+ NDC airlines.",
+      "points": [
+        "Full-stack design across brand, marketing and implementation: the company website and campaign materials for conferences and social media, designed and built in code.",
+        "Use AI for research, moodboards, color science and design system work, and to build the company's event stand.",
+        "Defined, designed and built BookingPad, the company's NDC-ready travel agent app.",
+        "Improve user flows on the partner self-serve web app, working directly with the founder and the dev team."
+      ],
+      "ai": true,
+      "cases": [{ "label": "BookingPad", "url": "/projects/bookingpad/" }]
+    },
+    {
+      "id": "rockhero",
+      "company": "Rock Hero",
+      "period": "Jun 2021 – Oct 2024",
+      "start": "2021-06",
+      "about": "Leading super app for food and product shopping and delivery in Gibraltar.",
+      "points": [
+        "Full-stack design across brand, marketing and implementation.",
+        "Helped define the rebranding strategy.",
+        "Used AI in social media marketing campaigns.",
+        "Designed and prototyped the native iOS and Android apps for stores and end users, and built a bespoke back-office web app with the dev team.",
+        "Developed a Figma design component system."
+      ],
+      "ai": true,
+      "cases": []
+    },
+    {
+      "id": "ulampinoy",
+      "company": "Ulam Pinoy",
+      "period": "Oct 2011 – Present",
+      "start": "2011-10",
+      "about": "Own food channel and website: 66.4K YouTube subscribers, 11.3M views.",
+      "points": [
+        "Complete visual design, branding, web design, photography, video production, illustration, icon design and copywriting.",
+        "Create and manage social media marketing campaigns across YouTube, Instagram, Facebook and TikTok."
+      ],
+      "cases": [
+        { "label": "Case study", "url": "/projects/ulampinoy/" },
+        { "label": "ulampinoy.com", "url": "https://ulampinoy.com" }
+      ]
+    },
+    {
+      "id": "orbitalads",
+      "company": "Orbital Ads",
+      "period": "Oct 2020 – May 2021",
+      "start": "2020-10",
+      "about": "Paid search automation software for Google Ads and Microsoft Advertising.",
+      "points": [
+        "Improved and tested web app user flows; built a Figma component system and a living UI pattern library with the dev team."
+      ],
+      "cases": []
+    },
+    {
+      "id": "nextchance",
+      "company": "Next Chance Group (TheMotion, Buyviu, AdGoClick)",
+      "period": "Jun 2017 – Aug 2019",
+      "start": "2017-06",
+      "about": "TheMotion: automatic production of video ads at scale; the first Spanish company to become a Facebook Marketing and Instagram Partner in the Creative Platforms category.",
+      "points": [
+        "Turned a command-line-only API product into a self-serve web app for creating video ads and launching campaigns.",
+        "Designed back-office tools for operations and API integrations, and built a design system with a living UI pattern library, implemented in code."
+      ],
+      "cases": [
+        { "label": "TheMotion", "url": "/projects/themotion/" },
+        { "label": "AdGoClick", "url": "/projects/adgoclick/" }
+      ]
+    },
+    {
+      "id": "packlink",
+      "company": "Packlink",
+      "period": "Mar 2014 – Apr 2017",
+      "start": "2014-03",
+      "about": "Online comparison, booking and management service for shipping.",
+      "points": [
+        "Hired as the first product designer. Created the brand and the UI design system.",
+        "Designed and implemented the complete UX/UI for the consumer site (packlink.com) and the business app (Packlink Pro).",
+        "Helped the founders recruit and structure the product team."
+      ],
+      "cases": [{ "label": "Case study", "url": "/projects/packlink/" }]
+    },
+    {
+      "id": "webpop",
+      "company": "WebPop",
+      "period": "Mar 2010 – Oct 2013",
+      "start": "2010-03",
+      "about": "Cloud CMS and hosting for custom websites; the precursor to Netlify.",
+      "points": [
+        "Creative direction, brand and marketing design, UI/UX design and front-end coding (HTML and CSS)."
+      ],
+      "cases": [{ "label": "Case study", "url": "/projects/webpop/" }]
+    },
+    {
+      "id": "domestika",
+      "company": "Domestika",
+      "period": "Apr 2008 – Oct 2013",
+      "start": "2008-04",
+      "about": "Largest Spanish-speaking community for creative professionals.",
+      "points": [
+        "Complete redesign of domestika.org: prototypes, illustrations, icons and hand-coded front-end HTML and CSS.",
+        "Designed and implemented some of the annual websites for MADinSpain, its yearly global event."
+      ],
+      "cases": [{ "label": "Case study", "url": "/projects/domestika/" }]
+    },
+    {
+      "id": "marketgoo",
+      "company": "MarketGoo",
+      "period": "2012",
+      "start": "2012",
+      "about": "Do-it-yourself online marketing web app for small businesses.",
+      "points": [
+        "Complete visual design of the website and app UI, including illustrations, custom icons, screencast demo and photography. Responsive front-end built with Zurb Foundation."
+      ],
+      "cases": [{ "label": "Case study", "url": "/projects/marketgoo/" }]
+    }
+  ]
+}

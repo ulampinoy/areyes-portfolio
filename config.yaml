@@ -1,15 +1,21 @@
-title: Allan Reyes Design Portfolio
-baseURL: /
+title: Allan Reyes — Designer and visual director
+baseURL: https://allanrey.es/
+languageCode: en
 params:
-  accent_color: yellow
-  color_scheme: dark
-  footer:
-    content: '&copy; 2020 Allan Reyes.'
-    has_social: true
-  header:
-    has_nav: true
-    logo_img: /images/ar-logo-main-gray.svg
-    title: Allan Reyes
+  description: >-
+    Allan Reyes, designer and visual director. 20 years across brand, visual identity,
+    marketing and digital product — from concept to code, with AI as part of the creative process.
+  accent: '#4A6DA7'
+outputFormats:
+  llms:
+    mediaType: text/plain
+    baseName: llms
+    isPlainText: true
+    notAlternative: true
+outputs:
+  home:
+    - HTML
+    - llms
 disableKinds:
   - RSS
   - taxonomy

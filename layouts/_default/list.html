@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="page">
+  <header class="page__head">
+    <p class="label">Index</p>
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+  {{ $projects := (where .Site.RegularPages "Section" "projects").ByDate.Reverse }}
+  <ol class="index">
+    {{ range $i, $p := $projects }}
+    <li class="index__item">
+      <a href="{{ $p.RelPermalink }}" class="index__link">
+        <span class="index__num">{{ printf "%02d" (add $i 1) }}</span>
+        {{ with $p.Params.thumb_img_path }}<span class="index__thumb"><img src="{{ . | relURL }}" alt="" loading="lazy" decoding="async" style="view-transition-name: thumb-{{ $p.File.BaseFileName }}"></span>{{ end }}
+        <span class="index__body">
+          <span class="index__title" style="view-transition-name: title-{{ $p.File.BaseFileName }}">{{ $p.Title }}</span>
+          {{ with $p.Params.subtitle }}<span class="index__sub">{{ . | plainify | truncate 140 }}</span>{{ end }}
+        </span>
+        <span class="index__arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+    {{ end }}
+  </ol>
+</section>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ $slug := .File.BaseFileName }}
+<article class="page case">
+  <header class="page__head">
+    <p class="label"><a href="{{ "portfolio/" | relURL }}">← work</a> / case study</p>
+    <h1 class="page__title" style="view-transition-name: title-{{ $slug }}">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{ with .Params.content_img_path }}
+  <figure class="case__hero"><img src="{{ . | relURL }}" alt="" style="view-transition-name: thumb-{{ $slug }}"></figure>
+  {{ else }}{{ with .Params.thumb_img_path }}
+  <figure class="case__hero"><img src="{{ . | relURL }}" alt="" style="view-transition-name: thumb-{{ $slug }}"></figure>
+  {{ end }}{{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+  <nav class="case__nav" aria-label="More work">
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+  </nav>
+</article>
+{{ end }}

@@ -8,6 +8,6 @@ subtitle: >-
 date: '2018-01-15'
 thumb_img_path: /images/webpop-cover.png
 content_img_path: /images/Screenshot_2020-02-18 The Cloud CMS Platform Webpop.jpg
-layout: project
+
 ---
 Creative direction, branding and marketing design, UI design and development for the web app.

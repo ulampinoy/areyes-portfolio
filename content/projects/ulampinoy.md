@@ -7,7 +7,7 @@ subtitle: >-
 date: '2019-02-27'
 thumb_img_path: /images/ulampinoy-cover.png
 content_img_path: /images/Screenshot_2020-02-18 UlamPinoy—Official Website ulampinoy com(3).jpg
-layout: project
+
 ---
 ### Work Done
 

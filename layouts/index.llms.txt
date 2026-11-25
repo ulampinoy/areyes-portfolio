@@ -1,0 +1,37 @@
+{{- $cv := .Site.Data.cv -}}
+# {{ $cv.name }}
+
+> {{ $cv.headline }}
+
+{{ $cv.profile }}
+
+Contact: {{ $cv.contact.email }} · {{ $cv.contact.phone }} · https://allanrey.es · https://ulampinoy.com
+PDF: https://allanrey.es/cv/Allan-Reyes-CV.pdf
+
+## Experience
+{{ range $cv.works }}
+### {{ .company }} ({{ .period }})
+{{ .about }}
+{{ range .points }}
+- {{ . }}
+{{- end }}
+{{ end }}
+## Skills
+{{ range $cv.skills }}
+- {{ .title }}: {{ .text }}
+{{- end }}
+
+## Education
+{{ range $cv.education }}
+- {{ .title }}, {{ .school }}
+{{- end }}
+
+## Languages
+{{ range $cv.languages }}
+- {{ .title }} ({{ .text }})
+{{- end }}
+
+## Case studies
+{{ range (where .Site.RegularPages "Section" "projects").ByDate.Reverse }}
+- [{{ .Title }}]({{ .Permalink }})
+{{- end }}

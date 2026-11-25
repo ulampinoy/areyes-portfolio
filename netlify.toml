@@ -1,5 +1,44 @@
 [build]
-publish = "public"
+  command = "hugo"
+  publish = "public"
 
-  [build.environment]
+[build.environment]
   HUGO_VERSION = "0.64.1"
+  # The Netlify Server (AI assistant API) requires Node.js 24+
+  NODE_VERSION = "24"
+
+# Old pages folded into the one-page CV
+[[redirects]]
+  from = "/about/*"
+  to = "/#profile"
+  status = 301
+
+[[redirects]]
+  from = "/contact/*"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/posts/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/style-guide/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cv"
+  to = "/cv/Allan-Reyes-CV.pdf"
+  status = 302
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

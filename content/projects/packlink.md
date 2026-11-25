@@ -6,7 +6,7 @@ subtitle: >-
 date: '2019-04-08'
 thumb_img_path: /images/packlink-cover.png
 content_img_path: ''
-layout: project
+
 ---
 
 ### My Contributions & Responsibilities
